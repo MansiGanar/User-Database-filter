@@ -25,9 +25,11 @@ const displlayNames = async () => {
 
         eachName.forEach((element) => {
           console.log(element);
-          let newInnerHtml = ` <div > <p>${element["name"]} </p></div>
-          <div> <p>${element["username"]} </p> </div>
-          <div>  <p>${element["email"]} </p></div>`;
+          let newInnerHtml = ` <div > <ul> 
+          <li>Name :${element["name"]} </li>
+           <li> Username :${element["username"]} </li> 
+           <li> Email :${element["email"]} </li></ul>
+           <hr></div>`;
           listofNames.innerHTML += newInnerHtml;
         });
       });
@@ -38,10 +40,6 @@ const displlayNames = async () => {
 
 const getAllElements = async () => {
   await displlayNames();
-};
-const delAllElements = async () => {
-  let listofNames = document.getElementById("names");
-  listofNames.innerHTML = "";
 };
 
 const getNames = async () => {
@@ -119,7 +117,8 @@ const stringAddress = async () => {
           let { city, suite, street, zipcode } = element.address;
           let address = `${street}, ${suite}, ${city}, (${zipcode})`;
           console.log(address);
-          let newInnerHtml = ` <div > <p>${address} </p></div>`;
+          let newInnerHtml = ` <div > <p>${element.name} :</p>
+          <p>${address} </p> <hr></div>`;
           listofNames.innerHTML += newInnerHtml;
         });
       });
